@@ -1,0 +1,10 @@
+# Tienda
++ Quitar filtro
+- Sin resultados, volver
+- Arreglar filtros
+
+# Administrador
+- Encabezado de pedidos pendientes
+- Cambiar pedidos.php por pedidos pendientes de envio
+- Boton Enviar
+

@@ -1,0 +1,2461 @@
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, output, ruby, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline; }
+    article, aside, details, figcaption, figure, footer, header, hgroup, section {
+        display: block; }
+    body {
+        line-height: 1; }
+    ol, ul {
+        list-style: none; }
+    blockquote, q {
+        quotes: none; }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none; }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0; }
+
+
+/* #Basic Styles
+================================================== */
+    body {
+        background: #fff;
+        font: 14px/21px "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #444;
+        -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+        -webkit-text-size-adjust: 100%;
+ }
+
+
+/* #Typography
+================================================== */
+    h1, h2, h3, h4, h5, h6 {
+        color: #181818;
+        font-family: "Georgia", "Times New Roman", serif;
+        font-weight: normal; }
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+    h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
+    h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
+    h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
+    h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
+    h5 { font-size: 17px; line-height: 24px; }
+    h6 { font-size: 14px; line-height: 21px; }
+    .subheader { color: #777; }
+
+    p { margin: 0 0 0 0; }
+    p img { margin: 0; }
+    p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+
+    em { font-style: italic; }
+    strong { font-weight: bold; color: #333; }
+    small { font-size: 80%; }
+
+/*	Blockquotes  */
+    blockquote, blockquote p { font-size: 17px; line-height: 24px; color: #777; font-style: italic; }
+    blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
+    blockquote cite { display: block; font-size: 12px; color: #555; }
+    blockquote cite:before { content: "\2014 \0020"; }
+    blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: black; }
+
+    hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 10px; height: 0; }
+
+
+
+
+
+/* #Images
+================================================== */
+
+    img.scale-with-grid {
+        max-width: 100%;
+        height: auto; }
+
+
+/* #Buttons
+================================================== */
+    input, textarea, select{-webkit-appearance: none!important; box-shadow: none!important; border-radius: none; border-radius: 0;}
+    .button,
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+      background: #AA2F88; /* Old browsers */
+      border: 0px;
+      color: #ffffff;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: normal;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      line-height: normal;
+      padding: 8px 10px;
+      border: 2px solid #AA2F88;
+      font-family: "Josefin Sans", "Futura", Arial, sans-serif; font-weight: bolder; }
+
+    .button:hover,
+    button:hover,
+    input[type="submit"]:hover,
+    input[type="reset"]:hover,
+    input[type="button"]:hover {
+      color: #AA2F88;
+      background-color: transparent;
+      border: 2px solid #AA2F88;
+    }
+
+    .button:active,
+    button:active,
+    input[type="submit"]:active,
+    input[type="reset"]:active,
+    input[type="button"]:active {
+      color: #AA2F88;s
+      background-color: #fff;
+      border: 2px solid #AA2F88;
+        }
+
+    .button.full-width,
+    button.full-width,
+    input[type="submit"].full-width,
+    input[type="reset"].full-width,
+    input[type="button"].full-width {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: center; }
+
+    /* Fix for odd Mozilla border & padding issues */
+    button::-moz-focus-inner,
+    input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+    }
+
+
+/* #Forms
+================================================== */
+#button{
+    margin-bottom: 20px;
+}
+    form {
+        margin-bottom: 20px; }
+    fieldset {
+        margin-bottom: 20px; }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    textarea,
+    select {
+        padding: 6px 4px;
+        outline: none;
+        font-family: "Josefin Sans";
+    font-size: 9pt;
+    background-color: #F2F2F2;
+    color: black;
+        margin: 0;
+        width: 210px;
+        max-width: 100%;
+        margin-bottom: 20px;
+        display: block;
+        padding: 10px;
+        border: none;}
+
+        ::-webkit-input-placeholder {
+   text-transform: uppercase;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-transform: uppercase;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-transform: uppercase;
+}
+
+:-ms-input-placeholder {
+   text-transform: uppercase;
+}
+
+
+    select {height: 40px; width: 310px; }
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border: 1px solid #aaa;
+ 		color: #444;
+ 		-moz-box-shadow: 0 0 3px rgba(0,0,0,.2);
+        -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2);
+        box-shadow:  0 0 3px rgba(0,0,0,.2); }
+    textarea {
+        min-height: 60px; }
+    label,
+    legend {
+        display: block;
+        font-weight: bold;
+        font-size: 13px;  }
+    select {
+        width: 220px; }
+    input[type="checkbox"] {
+        display: inline; }
+    label span,
+    legend span {
+        font-weight: normal;
+        font-size: 13px;
+        color: #444; }
+
+/* #Misc
+================================================== */
+    .remove-bottom { margin-bottom: 0 !important; }
+    .half-bottom { margin-bottom: 10px !important; }
+    .add-bottom { margin-bottom: 20px !important; }
+
+
+
+
+
+.menu {
+    background-color: rgba(255,255,255,0.8);
+    z-index: 0;
+    width: 100%;
+    z-index: 4;
+    height: 57px;
+    position: fixed;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.55);
+-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.55);
+box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.55);
+}
+.menu img{max-width: 233px; height: auto;}
+.menu ul{text-align: right; margin: 0 10px 0 10px;}
+.menu li{
+    text-transform: none;
+    position: relative;
+    font-family: "Josefin Sans";
+    font-size: 16px;
+    display: inline-block;
+    padding: 12px 12px 0 12px;
+}
+
+
+
+
+
+.menu ul li a{
+    color: black;
+
+}
+.menu img{margin-top: 15px; }
+.menu a:hover{ text-decoration: none;	}
+
+#menu{ margin-top: 0px;
+    height: 57px;}
+#menu li a{margin-top: 0px;}
+
+#login{
+    text-decoration: none;
+    color: #fff;
+ 	}
+a{
+    text-decoration: none;
+    }
+a:hover{
+    text-decoration: none;
+    }
+
+.menu nav {
+    height: 57px;
+    margin-top: 0px;
+}
+
+.submenuprincipal{
+     font-size: 13px;
+}
+.nonn {margin-right: 155px!important;}
+.nonn li{
+    margin-top: 8px;
+}
+.usuarios{
+    position: absolute;
+    margin-top:-36px;
+    background: rgb(170,47,136);
+    width: 155px;
+    text-transform: capitalize;
+    text-align: center;
+    z-index: 4;
+    padding: 8px 3px;
+    overflow: hidden;
+}
+.usuarios p, .buttn p{
+    overflow: hidden;
+    font-family: "Josefin Sans", "Futura", Arial, sans-serif;
+    font-weight: 700;
+    height: 22px;
+    color: #fff!important;
+
+}
+.button p a{color: #fff!important;}
+.usuarios ul, .buttn ul{
+    display: inline-block;
+    margin-top: -17px;
+}
+
+.usuarios li+li, .buttn li+li{
+    border-left: 1px solid #000;
+    padding-left: 4px;
+}
+.usuarios li, .buttn li{
+    position: relative;
+      font-size: 12px;
+      font-weight: normal;
+      text-decoration: none;
+      cursor: pointer;
+      line-height: normal;
+      padding: 0px;
+}
+.buttn{
+    position: absolute;
+    margin-top:-36px;
+    padding-top: 10px;
+    background: rgb(170,47,136);
+    width: 140px;
+    color: #fff!important;
+    text-transform: capitalize;
+    text-align: center;
+    z-index: 4;
+    padding: 8px 3px;
+    overflow: hidden;
+}
+
+.slicknav_btn { position: fixed; display: block; vertical-align: middle; padding: 17px 0px 30px 85%; line-height: 1.125em; cursor: pointer; z-index:200; }
+.slicknav_menu  .slicknav_menutxt { display: none; line-height: 1.188em; float: right;}
+.slicknav_menu .slicknav_icon { float: right; margin: 0.188em 0 0 0.438em; }
+.slicknav_menu .slicknav_no-text { margin: 0 }
+.slicknav_menu .slicknav_icon-bar { background-color: #AA2F88; display: block; width: 2em; height: 0.28em;}
+.slicknav_btn .slicknav_icon-bar + .slicknav_icon-bar { margin-top: 0.15em }
+.slicknav_nav { clear: both;margin:0;padding:0;font-size:0.875em; list-style: none;overflow:hidden;}
+.slicknav_nav ul,
+.slicknav_nav li { display: block; font-size: 14px; }
+.slicknav_nav li+li{border-top: 1px solid #e3e3e3;}
+.slicknav_nav li div{display: block; position: relative; font-size: 16px; padding: 6px; margin: 0 auto; text-align: center; width: 100%;}
+.slicknav_nav li div p{height: 25px;}
+.slicknav_nav li div ul li {display: inline-block; vertical-align: middle; border: none; height: 20px;text-transform: capitalize; margin: 0px; padding: 0px; padding-bottom: 4px;}
+.slicknav_nav li div ul li+li {}
+.slicknav_nav .slicknav_arrow { font-size: 0.8em; margin: 0 0 0 0.4em; }
+.slicknav_nav .slicknav_item { cursor: pointer; }
+.slicknav_nav .slicknav_row { display: block; }
+.slicknav_nav a { display: block; padding:5px 10px; margin:2px 5px;text-decoration:none; text-align: center; color:black;}
+.slicknav_nav .slicknav_item a,
+.slicknav_nav .slicknav_parent-link a { display: inline }
+.slicknav_menu:before,
+.slicknav_menu:after { content: " "; display: table; }
+.slicknav_menu:after { clear: both }
+.slicknav_nav, .slicknav_nav nav {font-family: "Josefin Sans"; text-align: center; list-style: none;overflow:hidden;margin-top:57px;position: fixed;width: 100%;background: rgba(255,255,255,0.8); z-index: 99;padding-top: 10px}
+.slicknav_nav nav {padding:0;margin:0 0 0 20px;}
+/* IE6/7 support */
+.slicknav_menu { *zoom: 1; z-index: 2;}
+.slicknav_menu {display:none;}
+.slicknav_nav ul {padding:0; margin:0 0 0 0px;}
+
+@media screen and (max-width: 967px) {
+    .js #menu {
+        display:none;
+    }
+
+    .js .slicknav_menu {
+        display:block;
+    }
+
+}
+
+.cover{
+    width:100%;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    border-bottom: 4px solid #AA2F88;
+}
+
+.cover h1{
+    position: absolute;
+    font-family: "Josefin Sans";
+    color: #fff;
+    text-align: center;
+    z-index: 6;
+    top: 30%;
+        left: 50%;
+        -ms-transform: translate( -50%, -50%);
+        -webkit-transform: translate( -50%, -50%);
+        transform: translate( -50%, -50%);
+}
+
+
+@-webkit-keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    display: none!important;
+  }
+}
+
+.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+}
+.scrolling{
+    display: none!important;
+}
+.fade{display: block;}
+.slider_wrapper{
+    overflow: hidden;
+    position:relative;
+    height:280px;
+    top:auto;
+}
+#image_slider{
+    position: relative;
+    height: auto;
+    list-style: none;
+    overflow: hidden;
+    float: left;
+    /*Chrom default padding for ul is 40px */
+    padding:0px;
+    margin:0px;
+}
+#image_slider li{
+    position: relative;
+    float: left;
+}
+#image_slider li img{
+
+}
+.nvgt{
+    position:absolute;
+    top: 350px;
+    height: 50px;
+    width: 30px;
+    opacity: 0.6;
+}
+.nvgt:hover{
+    opacity: 0.9;
+}
+#prev{
+    background: #AA2F88 url('https://dl.dropboxusercontent.com/u/65639888/image/prev.png') no-repeat center;
+    left: 0px;
+}
+#next{
+    background: #AA2F88 url('https://dl.dropboxusercontent.com/u/65639888/image/next.png') no-repeat center;
+    right: 0px;
+}
+
+
+
+
+
+
+.cover2{
+    height: 500px;
+    background: url(../images/cover2.jpg) fixed no-repeat;
+    z-index: 0;
+    text-align: center;
+}
+
+.cover2 h1, .cover h1, .cover3 h1{
+    display: inline-block;
+    font-family: "Josefin Sans";
+    text-transform: uppercase;
+    font-size: 38px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    margin-top: 200px;
+    background-color: rgba(0,0,0,0.4);
+    border: 2px solid #fff;
+    padding: 5px 10px;
+}
+
+.cover2 img{
+    margin-top: -60%
+}
+
+.cover3{
+    height: 495px;
+    background: url(../images/cover11.jpg) no-repeat fixed;
+    overflow: hidden;
+    z-index: 0;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #AA2F88;
+}
+
+.cover3 h1{
+    position: relative;
+    font-family: "Josefin Sans";
+    font-size: 38px;
+    color: white;
+    text-align: center;
+    margin-top: 220px;
+    left: 50%;
+    -ms-transform: translate(-50%, 0); /* IE 9 */
+    -webkit-transform: translate(-50%, 0); /* Safari */
+    transform: translate(-50%,0px); /* Standard syntax */
+}
+
+.cover3 img{
+    margin-top: -60%
+}
+
+.modalDialog {
+    position: fixed;
+    overflow: auto;
+    font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog::-webkit-scrollbar {display: none; }
+
+.modalDialog::-moz-scrollbar {display: none;}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modalDialog::webkit-scrollbar{
+    display: none;
+}
+.modalDialog h2{font-family: "Josefin Sans";
+                font-weight: bold;
+                font-size: 22px; color: black;}
+
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+
+
+.modalDialog > div {
+    width: 420px;
+    position: relative;
+    margin: 10% auto;
+    padding: 50px 20px 20px 60px;
+    background: #fff;
+    z-index: 999;
+}
+
+.modalDialog > div input, textarea{
+    font-family: "Josefin Sans";
+    font-size: 9pt;
+    background-color: #F2F2F2;
+    color: black;
+    width: 380px;
+    border: 0;
+    height: 40px;
+    padding: 0 0 0 8px;
+}
+
+input::-webkit-input-placeholder {
+    color: black;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: black;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: black;
+}
+
+input:-ms-input-placeholder {
+    color: black;
+}
+
+.modalDialog > div button{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    height: 40px;
+    width: 390px;
+}
+.modalDialog > div button:hover{
+
+}
+
+
+
+.close {
+    font-family: "Josefin Sans";
+    font-size:22px;
+    font-weight: 700;
+    color: gray;
+    font-weight: bold;
+    line-height: 25px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 5px;
+    width: 24px;
+    text-decoration: none;
+
+}
+
+.close:hover { color: #AA2F88; }
+
+#nouser{
+    width: 470px;
+    height: 20px;
+    position: relative;
+    margin: -8% auto;
+    padding: 10px 10px 10px 10px;
+    background: #fff;
+    z-index: 999;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+#signin{
+    text-align: center;
+    margin-top: -25px;
+    width: 165px;
+    border: 2px solid #F2F2F2;
+    background-color: #F2F2F2;
+    color: black;
+    margin: 2px 2px 2px 0;
+}
+#filters{display: none;}
+#signin2{
+    text-align: center;
+    margin-top: -25px;
+    width: 170px;
+    border: 2px solid #F2F2F2;
+    background-color: #F2F2F2;
+    color: black;
+    margin: 0 0 0 2px;
+}
+
+
+
+.carrousel {margin-top: 40px;}
+
+
+
+.title h2 {
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 18pt;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    margin: 30px 0 30px;
+}
+.title h2:before, .title h2:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 49%;
+    height: 1px;
+    content: '\a0';
+    background-color: #CCCCCC;
+}
+.title h2:before {
+    margin-left: -49%;
+    text-align: right;
+}
+.your-class{
+    width: 88%;
+    margin: 0 auto;
+}
+.your-class h3{
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    text-transform: lowercase;;
+    color: #fff;
+    position: fixed;
+    top: 48%;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+
+.title2 h2 {
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-weight: normal;
+    font-size: 18pt;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: left;
+    margin: 20px 0 20px;
+}
+.title2 h2:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 90%;
+    height: 1px;
+    content: '\a0';
+    background-color: #CCCCCC;
+}
+
+.boton{
+    margin: 20px 0 40px 0;
+}
+.asder 
+{text-align: center;}
+#dos{
+    width: 300px;
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 18px;
+}
+#metrica{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 40px;
+    width: 18%;
+    border-right: 1px solid lightgray;
+    height: 100%!important;
+}
+#catalogodeproductos{
+    display: inline-block;
+    width: 80%;
+    padding-top: 40px;
+}
+#productoscasal{width: 100%; }
+.proditem{
+    width: calc(25% - 10px);
+    display: inline-block;
+    overflow: hidden;
+}
+
+.products h2 {
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    margin-left:8px;
+    font-size:12pt;
+    line-height: 20px;
+}
+.products p {
+    font-family: "Josefin Sans";
+    margin-left:8px;
+    font-size:12pt;
+    line-height: 0px;
+}
+
+.products a{
+    font-family: "Josefin Sans";
+    font-size:14pt;
+    cursor: pointer;
+    margin-left: 25px;
+    top:25%;
+ 	width: 50%;
+    position: absolute;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+}
+
+.products a:visited{
+color: black;
+}
+
+
+.footer {
+    background-color: #353535;
+    padding: 20px 0 20px;
+
+
+}
+
+.footer h4 {
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size:18px;
+    color: #fff;
+}
+.footer ul li{
+    margin-bottom: 2px;
+}
+
+.footer ul li a{
+    font-family: "Josefin Sans";
+    font-size:18px;
+    color: white;
+}
+
+.footer ul li a:hover{
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size:18px;
+    color: white;
+}
+
+.footer p{
+    font-family: "Josefin Sans";
+    font-size:16px;
+    color: #fff;
+}
+
+.footer strong {
+    font-family: "Josefin Sans";
+    font-size:14px;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-size: 16px;
+    padding: 5px 0 5px;
+    width: 100%;
+    bottom: 0px;
+    background-color: #AA2F88;
+    color: white;
+}
+
+.about{
+    padding-bottom: 40px;
+}
+.clients{
+    background-color: #F2F2F2;
+    padding: 20px
+}
+
+.aboutimg{
+    background: url(../images/image.jpg) no-repeat center center;
+    height: 450px;
+    margin: 0 auto;
+
+}
+
+.logos ul {
+     width: 100%;
+    text-align: center;
+}
+.logos ul li{
+    display: inline;
+    text-align: center;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+
+    }
+
+.logos ul li img{
+    -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+}
+
+.contact{
+    padding: 20px
+}
+
+
+
+#contact input, #contact textarea, #registros input, textarea{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 9pt;
+    text-transform: none;
+    background-color: #F2F2F2;
+    color: black;
+    width: 380px;
+    border: 0;
+    height: 40px;
+    padding: 3px 0 0 8px;
+    outline: none;
+    width: 100%;
+}
+
+#contact textarea{ padding-top: 8px; height: 140px;}
+input, textarea::-webkit-input-placeholder {
+    color: black;
+}
+
+input, textarea:-moz-placeholder { /* Firefox 18- */
+    color: black;
+}
+
+input, textarea::-moz-placeholder {  /* Firefox 19+ */
+    color: black;
+}
+
+input, textarea:-ms-input-placeholder {
+    color: black;
+}
+
+#enviar{
+    width: 101%
+}
+
+.about p{
+    margin-top: 70px;
+    text-align: justify;
+    font-family: "Josefin Sans";
+    font-size:16px;
+    color: black;
+}
+
+.contact p{
+    margin-top: 40px;
+    font-family: "Josefin Sans";
+    font-size:14px;
+    color: black;
+    line-height: 14px;
+}
+
+.contact strong {
+}
+
+
+.registro{
+    padding-top: 60px;
+    padding-bottom:200px;
+}
+#recuperar{padding-top: 100px;}
+
+#registros p{
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+
+#usuario {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+
+
+#adminis {margin-left: 25%;
+margin-bottom: 20px;}
+
+
+
+#usuario h3 {
+    font-family: "Josefin Sans";
+    font-size: 15px;
+}
+
+#usuario h2{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 21px;
+    text-indent: 8px;
+    margin-top: -25px;
+    text-transform:capitalize;
+}
+
+.mons{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    margin-top: 45px;
+}
+
+.nerd{
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    text-align: center;
+
+}
+
+.pedidos{
+    height: 140px;
+    padding: 10px 0 10px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 40px;
+    overflow: auto;
+    overflow-x:hidden;
+    text-align: center;
+}
+.pedidos2{
+    height: 140px;
+    padding: 10px 0 10px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+
+.pedidos::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #f2f2f2;
+}
+
+.pedidos::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: #f2f2f2;
+}
+
+.pedidos::-webkit-scrollbar-thumb
+{
+    background-color: #E6E6E6;
+}
+
+.facturacion{
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    margin-bottom: 30px;
+    height: 174;
+    min-height: 174px;
+}
+
+.facturacion h2{
+    text-align: center;
+    font-size:5px;
+    font-family: "Josefin Sans";
+}
+
+.derecha{
+    font-family: "Josefin Sans";
+    color: black;
+    text-decoration: none;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+
+#contact input, #contact textarea, .registros input, textarea{
+    font-family: "Josefin Sans";
+    font-size: 9pt;
+    background-color: #F2F2F2;
+    color: black;
+    width: 380px;
+    border: 0;
+    height: 40px;
+    padding: 0 0 0 8px;
+    outline: none;
+    width: 100%;
+}
+#contact textarea{padding-top: 8px; height: 100px; resize: none; }
+
+.cuenta{margin-top: 40px; text-align: center;}
+.cuenta2 ul{margin: 5px 5px -7px; vertical-align: bottom}
+.cuenta ul li{
+
+    color: gray;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bolder;
+    display: inline-block;
+    padding: 0 6px 0 6px;
+}
+.cuenta a{color: gray; font-weight: 700; font-family: "Josefin Sans";
+    font-size: 10px;}
+
+.cuenta2{margin-top: 0px; text-align: right; vertical-align: bottom}
+
+.cuenta2 ul li{
+    font-family: "Josefin Sans";
+    color: gray;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bolder;
+    display: inline-block;
+    padding: 0 6px 0 6px;
+}
+.cuenta2 a{color: gray; font-weight: 700; font-family: "Josefin Sans";
+    font-size: 10px;}
+.prodicon{
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.tiendaizquierda{
+    text-indent: 15px;
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 13px;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+
+
+#tienda{
+    margin-bottom: 60px;
+}
+
+
+
+
+.precios{
+    background-color: #F2F2F2;
+    text-align: center;
+    height: 30px;
+    font-family: "Josefin Sans";
+    font-size: 13px;
+    color: black;
+
+}
+
+.modalDialogP {
+    position: fixed;
+    overflow-y: auto;
+    overflow-x:hidden;
+    font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialogP h2{font-family: "Josefin Sans";
+                font-weight: bold;
+                font-size: 22px; color: black;}
+
+.modalDialogP:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialogP::-webkit-scrollbar{display: none;}
+.modalDialogP::-moz-scrollbar{display: none;}
+.modalDialogP::-moz-scrollbar{display: none;}
+.modalDialogP > div {
+    position: absolute;
+    padding: 40px 30px 30px 30px;
+    background: #fff;
+    z-index: 999;
+      top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+
+
+.modalDialogP > div input, textarea{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 9pt;
+    text-transform: uppercase;
+    background-color: #F2F2F2;
+    color: black;
+    width: 380px;
+    border: 0;
+    height: 40px;
+    padding: 0 0 0 8px;
+}
+
+.modalDialogP > div button{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    height: 40px;
+    width: 390px;
+}
+.modalDialogP > div button:hover{
+
+}
+
+
+
+
+
+
+#edoagregar{
+    display: none;
+}
+
+.carritoimg{
+    max-width: 190px;
+    overflow: hidden;
+    text-align: center;
+
+}
+.carritoimg img{
+
+    max-height: 128px;
+}
+
+.cuadrogris{
+    background-color: #f2f2f2;
+    padding: 10px 15px 10px 15px;
+    text-align: center;
+
+}
+
+.cuadrogris h1{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    text-align: left;
+
+}
+
+.cuadrogris p{
+    font-family: "Josefin Sans";
+    font-weight: 400!important;
+    font-size: 14px;
+    font-weight: bolder;
+    color: black;
+    line-height: 0px;
+}
+
+#msgpedido{
+    display: none;
+}
+
+
+/*-------------------*/
+#buscarProd{
+    width: 150px;
+    height: 14px;
+    background-color: white;
+    border: 1px solid #AA2F88;
+    padding:8px 15px;
+    font-family: "Josefin Sans"
+}
+#search{
+    background-color: #AA2F88;
+    position:relative;
+    height: 32px;
+    width: 32px;
+    top:-52px;
+    right: -150px;
+    padding: 0px;
+}
+#search img{
+
+}
+#nomarg{
+    margin-bottom: -50px;
+}
+
+.catego{
+    font-family: "Josefin Sans";
+    font-size:16px;
+    font-weight: bolder;
+    padding-top: 8px;
+}
+
+
+.carts {
+    font-family: "Josefin Sans";
+    text-transform: uppercase;
+
+}
+
+#productos{
+    margin-top: 30px;
+}
+
+
+
+.photo2{
+    width: 340px;
+    height: 340px;
+    margin: 0 auto;
+        overflow: hidden;
+overflow:hidden;
+    position: relative;  cursor: pointer;
+    background-color: #fff;
+border: 2px solid #AA2F88;
+}
+
+.photo2 img{
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+.proditem{
+    width: calc(25% - 20px);
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 10px;
+    text-align: center;
+
+}
+
+
+.photo{
+    min-width: 100%;
+    height: 200px;
+    overflow:hidden;
+    position: relative;  cursor: pointer;
+    margin-top: 20px;
+}
+.photo img{
+    position: absolute;
+   max-width: 100%;
+   max-height: 100%;
+   top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+.prodimg{
+    max-width: 200px;
+    height: auto;
+    vertical-align: middle;
+}
+.precios{
+    background-color: #F2F2F2;
+    text-align: center;
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    color: black;
+    padding-top: 5px;
+    width: 100%;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: 0;
+    background-color: rgba(255,255,255,0.8);
+    opacity: 0;
+    transition: 0.4s ease-out;
+}
+.photo:hover .overlay{
+    opacity: 1;
+}
+
+#overlay2{
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: 0;
+    background-color: rgba(226,226,226,0.8);
+    opacity: 1;
+}
+
+
+#agot {
+    font-family:"Josefin Sans";
+    font-weight:bolder;
+    color:rgba(255,255,255,1);
+    font-size:26px;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    display: none;
+}
+#plus {
+    font-family:"Josefin Sans";
+    font-weight:300;
+    color:#AA2F88;
+    font-size:96px;
+    position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+}
+
+.nombreP{
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    color: black;
+    text-shadow: none;
+    text-transform: capitalize;
+}
+.nombreP1{
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size: 14px;
+    color: black;
+    text-shadow: none;
+    text-transform: capitalize;
+}
+.titl h2{
+    margin-top: 10px!important;
+}
+#nombrep{
+    font-family: "Josefin Sans";
+    font-size: 26px;
+    font-weight: bolder;
+}
+#marcaprod {
+    font-family: "Josefin Sans";
+    font-weight: 300;
+    font-size: 20px;
+    color: black;
+    text-transform: capitalize;
+    margin-top: -20px;
+}
+
+.txt{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #AA2F88;
+    margin-top: 10px;
+}
+#descripcion{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    color: black;
+    font-size: 12px;
+    text-transform: none;
+    text-align: justify;
+}
+#listadepresentaciones{
+    width: 100%
+}
+#agregaralcarro{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.miscompras{
+    background-color: #f2f2f2;
+    width: 100%;
+    text-align: center;
+    color: #000000;
+    height: 20px;
+    padding: 10px 0 10px;
+    cursor: pointer;
+}
+
+.resumendepedidos li, .detallesdepedido li{
+    display: inline-block;
+    font-family: "Josefin Sans";
+    color: black;
+    line-height: 0px;
+    text-align: left;
+}
+
+.detallesdepedido li{
+    padding: 0px 0px;
+}
+/*--------------------------*/
+.usuario2 h2{
+    margin-top: 100px;
+    font-family: "Josefin Sans";
+    font-size: 21px;
+}
+
+.informac h1{
+    font-family: "Josefin Sans";
+    text-transform: capitalize;
+    margin-top: 20px;
+    line-height: 0px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.informac h3{
+    font-family: "Josefin Sans";
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: capitalize;
+}
+
+.cantidadcontador input{
+    background-color: white;
+    border: 2px solid rgb(188,232,247);
+    text-align: center;
+    width: 50px;
+    font-family: "Josefin Sans";
+    font-size: 14px;
+    padding: 5px 0 5px 0;
+
+}
+
+.precio{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+
+.quitarr{
+    cursor: pointer;
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    float: right;
+    margin-top: 55px;
+}
+
+
+.subtotal {
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 25px;
+    margin-top: 20px;
+
+}
+
+
+#labenvio h2, #labfacturacion h2{
+font-family: "Josefin Sans";
+font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 10px;
+}
+#labenvio, #labfacturacion {
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+#change{
+    text-align: right;}
+
+#change a{
+        font-family: "Josefin Sans";
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: right!important;
+    color: gray;
+}
+
+
+.order {
+    text-align: center;
+    margin-top: 20px;
+    float: right;
+    width: 100%;
+}
+
+
+
+/*Movido el 8/01/2014 */
+.pags {margin: 30px;
+}
+.pags li{
+    display: inline-block;
+    background: #AA2F88;
+    color:white;
+    text-align: center;
+    width: 20px;
+}
+
+/* 8/01/15 - 9/01/15 */
+
+.carte { width: 220px; float: right; margin-right: 6px; padding: 0; margin-top: 5px;} /* Modificado 18/03/2015*/
+.menu .carritodecompras {width: 100%; }
+.menu .carritodecompras ul, .menu .menucheck ul{
+    background-color: rgba(255,255,255, 0.8);
+    text-align: center;
+    padding: 6px 6px;
+
+}
+.menu .carritodecompras ul li, .menu .menucheck ul li{
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 400;
+}
+.menu .carritodecompras ul li img, .menu .menucheck ul li img{
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu .carritodecompras ul li a, .menu .menucheck ul li a {
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size: 14px;
+    text-align: center!important;
+    color: white;
+
+}
+#typo{color: #fff;}
+#typo:hover{color: #AA2F88!important;}
+.menu .menucheck ul li a:hover{
+    color: #AA2F88!important;
+}
+
+.lismenucheck {cursor: pointer;}
+.submenucheck {display: none; padding: 0px;   background: none!important;}
+.submenucheck li{
+    font-size: 14px!important;
+    text-align: left;
+
+}
+.numer{
+    color: gray;
+    float: right;
+    padding-right: 5px;
+}
+
+.contador{
+    display: inline-block;
+}
+
+#paginas{
+    float: right;
+}
+
+
+.noresult{
+
+}
+
+.backs{
+    margin: 30px;
+}
+
+.clientesadmin{margin-top: 0px; text-align: left; vertical-align: bottom; overflow-y: scroll; height: 150px;}
+
+.clientesadmin ul li{
+    font-family: "Josefin Sans";
+    color: gray;
+    display: inline-block;
+    padding: 0 6px 0 6px;
+}
+.clientesadmin a{color: gray; font-weight: 700; font-family: "Josefin Sans";
+    font-size: 10px;}
+
+#edocte #edoadmin{
+    display: none;
+}
+
+.listapedido{
+    display: none;
+}
+
+
+.listapedido label{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Agregado el 19/01/2015 */
+.contador{
+    display: inline-block;
+}
+
+.contador .menos, .contador .mas{
+    width:30px;
+}
+
+.contador .cantidadcontador{
+    width: 20px;
+}
+
+.contador .menos, .contador .mas, .contador .cantidadcontador{
+    display: inline-block;
+}
+
+/* Agregado 20/01/2015 */
+.submenuadmin{
+    background: #fff;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-left: -200px;
+    display: none;
+    position: absolute;
+    text-transform: capitalize;
+    width: 163px;
+    border: 1px solid #AA2F88;
+    z-index: 1;
+    padding: 0px;
+
+    /*display: none;*/
+
+}
+
+.submenuadmin li{
+    display: block;
+    color:black;
+    padding: 3px;
+    text-align: left;
+}
+
+.trig{
+    cursor: pointer;
+}
+
+/* Agregado 21/01/2015 */
+.cuentanovalida{margin-top: 30px; text-align: center; vertical-align: bottom}
+.cuentanovalida ul li{
+
+    color: gray;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bolder;
+    display: inline-block;
+    padding: 0 6px 0 6px;
+}
+.cuentanovalida a{color: gray; font-weight: 700; font-family: "Josefin Sans";
+    font-size: 10px;}
+
+.textovalidar{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.msgcta{
+    color: gray;
+}
+
+#edoreenvio{
+    display: none;
+}
+
+.dash{
+    text-align: center;
+    padding-top: 10px;
+    margin: 20px 0px;
+    margin-left: 20px;
+
+}
+.dash img{
+    position: absolute;
+    float left;
+    margin-top: -20px;
+    margin-left: 5px;
+}
+.dash .button{color: white; }
+
+.dash .button:after{
+  content: "\25B8";
+  float: right;
+  margin-right: 5px;
+}
+.dash .button.on:after{
+  content: "\25Be";
+  float: right;
+  margin-right: 5px;
+}
+
+.dash .button:hover{background-color:#AA2F88 }
+
+#dashb{
+    width: 90%;
+    color: black;
+    margin: 15px 0px;
+    cursor: default;
+}
+
+#dashb:hover{
+    width: 90%;
+    color: black;
+    background-color: #AA2F88;
+
+}
+.dash ul li a{
+    font-family: "josefin Sans";
+    color:#999999;
+    padding: 4px 2px;
+    text-transform: uppercase;
+
+}
+.dash ul li a:hover{
+    color:black;
+}
+
+#opc{
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size: 14px;
+    text-align: center;
+    bottom: 4px;
+    text-transform: uppercase;
+    color: gray;
+    cursor: pointer;
+}
+
+#opc li{
+    display: block;
+}
+
+#opc li a {
+    font-family: "Josefin Sans";
+    font-weight: bolder;
+    font-size: 14px;
+    text-align: center;
+    bottom: 4px;
+    text-transform: uppercase;
+    color: gray;
+    cursor: pointer;
+}
+#dad{margin: 5px;}
+#locali ul li{
+    display: inline-block;
+
+        color: #AA2F88;
+        text-align: center;
+}
+
+#locali ul li a{
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    color: #B3B3B3;
+    padding: 10px 0px;
+
+}
+#locali ul li a:hover{
+    color: #AA2F88;
+
+}
+
+#locali ul li:after{
+    content: ' /';
+}ç
+
+
+.todoslospedidos hr{
+    margin: 10px 0px;
+}
+
+
+#adminPedidos h2{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 21px;
+    margin-top: -6px;
+}
+
+#adminPedidos h3{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 4px;
+}
+
+/* AGREGADO 23/01/2015 */
+
+.nombreus{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.correous{
+    color: #999999;
+    font-family: "Josefin Sans";
+    font-size: 15px;
+}
+
+.editarus{
+    color: #999999;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.adminUsuariosderecha{
+    margin-top: 20px;
+    text-align: right;
+}
+
+.adminUsuariosderecha .editarus{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.paginasus{
+    margin-top: 40px;
+    text-align: right;
+}
+
+.paginaul{
+    font-family: 'Josefin Sans';
+    font-weight: 700;
+}
+
+.paginaul li{
+    display: inline-block;
+}
+
+.paginanumerito{
+    background: #AA2F88;
+    color: white;
+    cursor: pointer;
+    height: 20px;
+    text-align: center;
+    width:20px;
+}
+
+/* Agregado el 29/01/2015 */
+
+.letraroja{
+    color: red;
+}
+
+/* Ya se que dirás que porque le puse diferentes clases si iban a tener todas el mismo estilo, porque yolo y si, ya comí*/
+.pedidoCliente, .pedidoFecha, .pedidoHora, .pedidoCantidad, .pedidoMonto, .pedidoColonia, .pedidoEstatus{
+    margin-left: 20px;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #cccccc;
+
+}
+
+/* Agregado 30/01/2015 */
+.listadeproductostabla{
+
+}
+
+.listadeproductostabla .aguacate{
+    font-size: 30px;
+    font-family: "Josefin Sans";
+    vertical-align: top;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+.listadeproductostabla li{
+    display: inline-block;
+}
+.listadeproductostabla #uno {height: 100%; width: 200}
+.listadeproductostabla img{
+    height: 80px;
+    width: 80px;
+    border-radius: 200em;
+}
+
+.listadeproductostabla .descripciondelproductodelalista{
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+/* Agregado 03/02/2015 */
+.edoprod{
+    display: none;
+}
+
+.imgModal{
+    width: 20px;
+    height: 20px;
+}
+
+/* Agregado 5/02/2015 */
+#estadoRechazado{
+    display: none;
+}
+#estado{color: black;}
+
+.modaldedatosdeenvio label{
+    font-family: "Josefin Sans";
+    margin-bottom: 20px;
+}
+
+/*19/02/2015*/
+
+.notification{ text-align: center;}
+.notification label{background-color: #f4c1c9; font-family: "Josefin Sans"; padding: 5px 10px; max-width: 40%; margin: 0 auto;margin-top: 20px;}
+.notification strong{font-family: "Josefin Sans"; }
+.triglista{
+    margin: 0!important;
+}
+.dashbo{
+    margin-top: 44px;
+    margin-left: 20px;
+}
+
+#opc1, #opc2, #opc3, #opc4{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    border: 2px solid #AA2F88;
+    display: none;
+    width: 100%;
+    margin-top: -2px;
+    padding: 10px 0px;
+}
+
+
+.aut{
+    padding: 3px;
+    background-color: #d0f2e3;
+    border: 2px solid #d0f2e3;
+    color: black;
+    text-align: left;
+    padding-top: 8px;
+    margin: 10px 0px;
+}
+.aut img{
+    float: right;
+    margin-right: 4px;
+    margin-top: -3px;
+}
+.aut:hover{
+    background-color: #fff;
+    border: 2px solid #d0f2e3;
+    color: black;
+}
+
+.rech{
+    padding: 3px;
+    background-color: #f4c1c9;
+    border: 2px solid #f4c1c9;
+    color: black;
+    text-align: left;
+    padding-top: 8px;
+    margin: 10px 0px;
+}
+.rech img{
+    float: right;
+    margin-right: 4px;
+    margin-top: -3px;
+}
+.rech:hover{
+    background-color: #fff;
+    border: 2px solid #f4c1c9;
+    color: black;
+}
+.triglista:after{
+  content: "\25B8";
+  color: #cccccc;
+  float: right;
+  margin-right: 8px;
+}
+
+#adminPedidos {padding: 60px 0px;}
+
+
+.cantidadcontador > button {display: inline-block; height: 35px; border: 2px solid #AA2F88; margin: 0px; margin-left: -4px;}
+
+.cantidadcontador > input{display: inline-block; height: 31px; border: 2px solid #AA2F88; padding: 0px; margin-left: -4px}
+
+
+/* Agregado  4 Marzo 2015 */
+
+.addprod{margin-top: 40px;}
+.addprod label{color: black;}
+.addprod label a{ font-family: "Josefin Sans"; font-weight: 700; font-size: 20px; color: black; background: #AA2F88; height: 20px; width: 20px; border-radius: 10px; float: right; text-align: center;}
+.addprod input, .addprod select, .addprod textarea{width: 100%; resize: none; padding: 10px 6px; text-transform: none!important; font-family: "Josefin Sans"!important; }
+
+.etiquetacategoria{
+    margin-left: 10px;
+    /*width: 300px;*/
+}
+.etiquetacategoria p{
+
+    padding: 2px 5px;
+    display: inline-block;
+    font-family: "Josefin Sans";
+    background: #F2F2F2;
+    width: auto;
+}
+
+.etiquetacategoria button{
+    background: #F2F2F2;
+    border: none;
+    color: #000;
+}
+
+/* Agregado 5 Marzo 2015 */
+.encabezadopedidos{
+
+}
+
+.encabezadopedidos li{
+    display: inline-block;
+    font-weight: bold;
+}
+
+.lipedido{
+    margin-left: 20px;
+}
+
+.linombre{
+    margin-left: 60px;
+}
+
+.lifecha{
+    margin-left: 100px;
+}
+
+.lihora{
+    margin-left: 45px;
+}
+
+.liitems{
+    margin-left: 20px;
+}
+
+.litotal{
+    margin-left: 20px;
+}
+
+.licolonia{
+    margin-left: 60px;
+}
+
+.env{
+    padding: 3px;
+    background-color: #d0f2e3;
+    border: 2px solid #d0f2e3;
+    color: black;
+    text-align: left;
+    padding-top: 8px;
+    margin: 10px 0px;
+}
+.env img{
+    float: right;
+    margin-right: 4px;
+    margin-top: -3px;
+}
+.env:hover{
+    background-color: #fff;
+    border: 2px solid #d0f2e3;
+    color: black;
+}
+
+.clients p{
+    font-family: "Josefin Sans";
+    font-size: 16;
+    text-align: center;
+}
+
+.clients #dos{
+    margin-top: 50px;
+    color: black!important;
+}
+
+.clients #dos a{
+    color: black;
+}
+
+.carritof{
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Agregado 11/03/2015 */
+.contadordos{
+    display: inline-block!important;
+}
+
+.contadordos .menoscarrito{
+    display: inline-block;
+    width:30px;
+}
+
+.contadordos .mascarrito{
+    display: inline-block;
+    width:30px;
+}
+
+.contadordos .articuloscarrito{
+    display: inline-block;
+    width:25px;
+    vertical-align: top;
+}
+
+.contadordos .articuloscarrito:focus{
+    display: inline-block;
+    width:25px;
+    vertical-align: top;
+    border:none;
+    box-shadow: 0px;
+
+}
+
+/*Agregado 18/03/2015 */
+.encabezadohistorialpedidos li{
+    display: inline-block;
+    font-weight: bold;
+    cursor:pointer;
+
+}
+
+.encabezadohistorialpedidos li:after{
+    content: "\25BC";
+    color: #cccccc;
+    margin-left:2px;
+}
+
+.lihpedido{
+    margin-left: 20px;
+}
+
+
+.lihnombre{
+    margin-left: 32px;
+}
+
+.lihfecha{
+    margin-left: 85px;
+}
+
+.lihhora{
+    margin-left: 33px;
+}
+
+.lihitems{
+    margin-left: 5px;
+}
+
+.lihtotal{
+    margin-left: 5px;
+}
+
+.lihcolonia{
+    margin-left: 13px;
+}
+
+.lihestatus{
+    margin-left: 95px;
+}
+
+.limenucarrito label{
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.liitemsc label{
+    display: inline-block;
+    text-transform: capitalize;
+    width: 50%;
+}
+.liitemsc #names{width: 100%!important; margin: 0px;}
+.liitemsc #cant {color: #AA2F88;}
+.liitemsc #prec {color: #AA2F88; text-align: right;}
+.litotalcarrito hr{ background: #AA2F88;}
+
+.litotalcarrito label{
+    text-align: right;
+}
+
+.prod{
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(224,224,224,1);
+-moz-box-shadow: 0px 0px 9px 0px rgba(224,224,224,1);
+box-shadow: 0px 0px 9px 0px rgba(224,224,224,1);
+margin: 10px 10px;
+}
+.prod img{ width: 100%; height: auto;}
+.prod h3{text-align: center; font-family: "Josefin Sans"; font-weight: 400; font-size: 1.7em; padding: 0px 50px; color: black; vertical-align: middle;}
+.carrousel{padding: 20px 0px;}
+
+/* Underline From Center */
+.prod{
+    cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.prod:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #AA2F88;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.prod:hover:before, .prod:focus:before, .prodr:active:before {
+  left: 0;
+  right: 0;
+}
+#presentacionesprod{font-family: "Josefin Sans"; font-weight: ;}
+.cantida, .preci{width: 30%; display: inline-block;}
+.nomarg{width: 40%; display: inline-block;}
+.cantida, .preci { padding-top: 5px;}
+.nomarg{text-align: right;}
+.modalancho{width:730px;}
+.cincuenta{width: 49%; display: inline-block; vertical-align: top;}
+
+/* Agregado 25/03/2015 */
+
+#cambiarperfil strong{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    color: #B3B3B3;
+
+}
+#cambiarcontrasena{padding-top: 100px;}
+#cambiarcorr{padding-top: 100px;}
+#cambiarperfil span{
+    margin-bottom: 25px;
+}
+
+#cambiarperfil label, .editable{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 23px;
+    text-transform: capitalize;
+    margin-top: 20px;
+
+}
+
+#cambiarperfil h1{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    color: #444;
+    font-size: 16px;
+    line-height: 100%;
+    margin: 0px;
+    margin-top: 40px;
+}
+#cambiarperfil h2{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    color: #444;
+    font-size: 16px;
+    line-height: 100%;
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-indent: -20px;
+}
+#cambiarperfil p{
+     font-family: "Josefin Sans";
+    font-size: 16px;
+    font-size: 14px;
+}
+
+#cambiarperfil2 h1{
+    font-family: "Josefin Sans";
+    font-weight: 700;
+    color: #444;
+    font-size: 16px;
+    line-height: 100%;
+    margin: 0px;
+    margin-top: 20px;
+}
+#cambiarperfil2 p{
+     font-family: "Josefin Sans";
+    font-size: 16px;
+    font-size: 14px;
+}
+
+.profilepic{
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    background-color: gray;
+    margin-top: 20px;
+}
+.profilepic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+}
+
+#overlaypp{ 
+            cursor: pointer;
+            position: absolute;
+            height: 160px;
+            width: 160px;
+            border-radius: 80px;
+            background:rgba(255,255,255,0.8);
+               text-align:center;
+               opacity:0;
+               -webkit-transition: opacity .25s ease;
+-moz-transition: opacity .25s ease;
+}
+#camb       {  font-family:"Josefin Sans";
+               font-weight:bolder;
+               color:rgba(170,47,136,.85);
+               font-size:24px;
+               position: absolute;
+                       top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+           }
+
+.profilepic:hover #overlaypp {
+               opacity:1;}
+
+.stgh1{
+    font-family: "Josefin Sans";
+    font-size: 16px;
+}
+#dos:hover, #dos a:hover{color: #AA2F88!important;}
+.button:hover{color:#AA2F88;}
+.autorfc{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+.rfcgenerico{
+    margin-left: 30px;
+}
+
+.checkfacturacion{
+}
+
+#checkboxfacturacion{
+
+}
